@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090a0c">
+  <title>Leve Veículos | Seu próximo carro está aqui</title>
+  <meta name="description" content="Compre, venda ou troque seu veículo com a Leve Veículos. Atendimento em Campinas/SP e região.">
+  <meta property="og:title" content="Leve Veículos | Compra, venda e troca de veículos">
+  <meta property="og:description" content="Encontre seu próximo carro com a Leve Veículos em Campinas/SP.">
+  <meta property="og:image" content="assets/leve-logo.png">
+  <link rel="icon" type="image/png" href="assets/leve-logo.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDealer",
+    "name": "Leve Veículos",
+    "image": "assets/leve-logo.png",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Domício Pachêco e Silva, 1126",
+      "addressLocality": "Campinas",
+      "addressRegion": "SP",
+      "addressCountry": "BR"
+    },
+    "telephone": "+55 19 98605-5364",
+    "sameAs": ["https://www.instagram.com/leve.veiculos/", "https://www.facebook.com/share/1F5emp2vqW/"]
+  }
+  </script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="assets/config.js"></script>
+  <script defer src="assets/site.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Leve Veículos - início"><img src="assets/leve-logo.png" alt="Leve Veículos"></a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="#estoque">Estoque</a><a href="#sobre">A Leve Veículos</a><a href="#negociar">Compre, venda ou troque</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="button button-small button-outline header-contact" data-whatsapp="diogo" href="#contato">Falar com consultor <span>↗</span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false">☰</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-carousel" id="heroCarousel" aria-label="Destaques da Leve Veículos"><div class="hero-bg hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2000&q=85')" aria-hidden="true"></div></div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <div class="hero-content wrap">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> LEVE VEÍCULOS · CAMPINAS / SP</div>
+        <h1>A leveza de um<br><em>bom negócio.</em></h1>
+        <p>Descubra a leveza de um bom negócio em nossa loja de veículos usados. Encontre seu próximo carro com atendimento próximo e personalizado.</p>
+        <div class="hero-actions">
+          <a class="button button-gold" href="#estoque">Explorar veículos <span>↗</span></a>
+          <a class="button button-glass" data-whatsapp="diogo" href="#contato">Falar com um consultor</a>
+        </div>
+        <div class="hero-bottom"><span>COMPRA&nbsp; · &nbsp;VENDA&nbsp; · &nbsp;TROCA</span><a href="#estoque">DESCUBRA O ESTOQUE <span>↓</span></a></div>
+      </div>
+      <div class="hero-carousel-controls" id="heroCarouselControls"><button type="button" id="heroPrev" aria-label="Imagem anterior">‹</button><div id="heroDots" class="hero-dots"></div><button type="button" id="heroNext" aria-label="Próxima imagem">›</button></div><div class="hero-counter" id="heroCounter">01 <i></i> 01</div>
+    </section>
+
+    <section class="intro wrap" id="sobre">
+      <div class="section-kicker"><span class="eyebrow">A LEVEZA DE UM BOM NEGÓCIO</span><i></i></div>
+      <div><h2>Leve Veículos.<br><em>A leveza de um bom negócio.</em></h2><p>Na Leve Veículos, você encontra opções de carros usados e atendimento para fazer uma escolha com tranquilidade.</p></div>
+    </section>
+
+    <section class="inventory wrap" id="estoque">
+      <div class="section-head">
+        <div><div class="eyebrow">NOSSO ESTOQUE</div><h2>Encontre o seu <em>próximo carro.</em></h2></div>
+        <a class="text-link" href="#estoque">ESTOQUE DISPONÍVEL <span>↗</span></a>
+      </div>
+      <div class="catalog-tools">
+        <label class="search-box"><span>⌕</span><input id="vehicleSearch" type="search" placeholder="Buscar por marca ou modelo" aria-label="Buscar veículos"></label>
+        <select id="sortVehicles" aria-label="Ordenar veículos"><option value="recent">Mais recentes</option><option value="price-asc">Menor preço</option><option value="price-desc">Maior preço</option><option value="year">Ano mais recente</option><option value="mileage">Menor quilometragem</option></select>
+      </div>
+      <div class="vehicle-grid" id="vehicleGrid"><div class="loading-state">Carregando veículos disponíveis...</div></div>
+      <p class="stock-disclaimer">Disponibilidade, valores e condições devem ser confirmados com a equipe comercial.</p>
+    </section>
+
+    <section class="service-section" id="negociar">
+      <div class="wrap">
+        <div class="center-heading"><div class="eyebrow">CONHEÇA A LEVE VEÍCULOS</div><h2>A leveza de um bom negócio<br><em>começa aqui.</em></h2></div>
+        <div class="service-grid">
+          <article class="service-card"><div class="service-icon">01</div><div class="eyebrow">COMPRE</div><h3>Encontre seu próximo carro</h3><p>Converse com nossa equipe e encontre uma opção alinhada ao que você procura.</p><a data-whatsapp="diogo" data-message="Olá! Tenho interesse em comprar um veículo na Leve Veículos." href="#contato">Quero comprar <span>↗</span></a></article>
+          <article class="service-card"><div class="service-icon">02</div><div class="eyebrow">TROQUE</div><h3>Faça uma troca</h3><p>Está pensando em trocar de veículo? Fale com a equipe sobre as possibilidades.</p><a data-whatsapp="igor" data-message="Olá! Tenho interesse em trocar meu veículo na Leve Veículos." href="#contato">Quero trocar <span>↗</span></a></article>
+          <article class="service-card"><div class="service-icon">03</div><div class="eyebrow">VENDA</div><h3>Venda seu veículo</h3><p>Apresente seu veículo para conversar sobre uma possível negociação.</p><a data-whatsapp="igor" data-message="Olá! Gostaria de vender meu veículo com a Leve Veículos." href="#contato">Quero vender <span>↗</span></a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="trade-section">
+      <div class="wrap trade-layout">
+        <div class="trade-copy"><div class="eyebrow">AVALIE SEU USADO</div><h2>Seu carro pode ser<br><em>o começo de um novo.</em></h2><p>Preencha os dados básicos do seu veículo. Você será direcionado ao WhatsApp para conversar com nossa equipe.</p></div>
+        <form id="tradeForm" class="trade-form">
+          <h3>Quero avaliar meu veículo</h3>
+          <div class="form-grid"><label>Seu nome<input name="name" required placeholder="Nome completo"></label><label>WhatsApp<input name="phone" required placeholder="(19) 99999-9999"></label><label>Marca e modelo<input name="vehicle" required placeholder="Ex.: Honda Civic"></label><label>Ano<input name="year" required placeholder="Ex.: 2021"></label><label class="form-wide">Quilometragem<input name="mileage" placeholder="Ex.: 45.000 km"></label></div>
+          <button class="button button-gold button-full" type="submit">Enviar para avaliação <span>↗</span></button>
+          <small>O envio abre uma conversa no WhatsApp. A avaliação depende da análise da equipe.</small>
+        </form>
+      </div>
+    </section>
+
+    <section class="faq-section wrap">
+      <div><div class="eyebrow">DÚVIDAS FREQUENTES</div><h2>Vamos deixar tudo<br><em>mais claro.</em></h2></div>
+      <div class="faq-list">
+        <details><summary>Posso comprar, vender ou trocar meu veículo?</summary><p>Sim. A Leve Veículos é uma loja de veículos usados. Entre em contato para conversar sobre sua necessidade.</p></details>
+        <details><summary>Como consulto a disponibilidade de um veículo?</summary><p>Entre em contato pelo WhatsApp. Nossa equipe confirma a disponibilidade e fornece as informações atualizadas.</p></details>
+        <details><summary>Onde fica a Leve Veículos?</summary><p>R. Domício Pachêco e Silva, 1126, Campinas/SP.</p></details>
+        <details><summary>Posso agendar uma visita?</summary><p>Sim. Fale com nossa equipe pelo WhatsApp para combinar os detalhes da visita.</p></details>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contato"><div class="wrap contact-layout"><div><div class="eyebrow">VAMOS CONVERSAR?</div><h2>A leveza de um bom negócio<br><em>começa com uma conversa.</em></h2></div><div><p>Fale com nossa equipe e tire suas dúvidas sobre compra, venda ou troca.</p><div class="contact-actions"><a class="button button-gold" data-whatsapp="diogo" href="#contato">WhatsApp <span>↗</span></a></div></div></div></section>
+  </main>
+
+  <footer class="site-footer"><div class="wrap footer-main"><div><a class="brand footer-brand" href="index.html"><img src="assets/leve-logo.png" alt="Leve Veículos"></a><p>Loja de veículos usados em Campinas/SP.</p></div><div><div class="eyebrow">VISITE NOSSA LOJA</div><p>R. Domício Pachêco e Silva, 1126<br>Campinas/SP</p><a class="footer-link" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=R.+Domício+Pachêco+e+Silva+1126+Campinas+SP">Como chegar ↗</a></div><div><div class="eyebrow">FALE COM A EQUIPE</div><a class="footer-link" data-whatsapp="diogo" href="#contato">WhatsApp ↗</a><a class="footer-link" target="_blank" rel="noopener" href="https://www.instagram.com/leve.veiculos/">Instagram ↗</a><a class="footer-link" target="_blank" rel="noopener" href="https://www.facebook.com/share/1F5emp2vqW/">Facebook ↗</a></div></div><div class="wrap footer-bottom"><span>© <span id="yearNow"></span> Leve Veículos. Todos os direitos reservados.</span><a href="admin/">Acesso da equipe</a><span>Campinas · São Paulo</span></div></footer>
+  <a class="whatsapp-float" data-whatsapp="diogo" href="#contato" aria-label="Falar com a Leve Veículos pelo WhatsApp">◔ <span>Fale conosco</span></a>
+</body>
+</html>
